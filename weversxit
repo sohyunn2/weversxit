@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>사전녹화 신청 연습</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { 
+      font-family: sans-serif; 
+      text-align: center; 
+      padding: 50px; 
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    #btn { 
+      font-size: 20px; 
+      padding: 15px 30px; 
+      margin-bottom: 30px;
+      background-color: #A8D08D; 
+      border: none; 
+      color: white; 
+      cursor: pointer;
+      border-radius: 5px;
+      width: 200px;
+      margin-top: auto;
+    }
+    #message { 
+      font-size: 24px; 
+      margin-top: 20px; 
+    }
+  </style>
+</head>
+<body>
+  <h1>사전녹화 신청 연습 페이지</h1>
+  <p>버튼을 누르면, <strong>시:분:초.밀리초</strong>까지 정확한 시간이 표시됩니다.</p>
+  <button id="btn" onclick="submit()">신청하기</button>
+  <div id="message"></div>
+
+  <script>
+    function submit() {
+      const currentTime = new Date();
+      const hours = currentTime.getHours().toString().padStart(2, '0');
+      const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+      const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+      const milliseconds = currentTime.getMilliseconds().toString().padStart(3, '0');
+      const timeString = `${hours}:${minutes}:${seconds}.${milliseconds}`;
+
+      document.getElementById("message").textContent = `버튼을 클릭한 시간: ${timeString}`;
+    }
+  </script>
+</body>
+</html>
